@@ -1,0 +1,1233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Logo-derived brand tokens */
+  --color-primary: #001838;
+  --color-primary-dark: #000820;
+  --color-primary-light: #0d2c56;
+  --color-accent: #c89038;
+  --color-accent-light: #dcb768;
+
+  --color-bg: #ffffff;
+  --color-surface: #f7f5f0;
+  --color-text: #14181f;
+  --color-text-muted: #5b6472;
+  --color-border: #e3e1da;
+
+  --color-success: #1f7a4d;
+  --color-warning: #b5790e;
+  --color-error: #b0342c;
+
+  --space-section: clamp(3.5rem, 6vw, 6.5rem);
+  --radius-card: 0.875rem;
+  --radius-card-sm: 0.625rem;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layered, restrained shadows — used instead of ad-hoc rgba shadows */
+  --shadow-xs: 0 1px 2px -1px rgba(0, 24, 56, 0.06), 0 1px 1px -1px rgba(0, 24, 56, 0.04);
+  --shadow-sm: 0 4px 14px -6px rgba(0, 24, 56, 0.12), 0 2px 4px -2px rgba(0, 24, 56, 0.06);
+  --shadow-md: 0 16px 32px -14px rgba(0, 24, 56, 0.22), 0 4px 10px -4px rgba(0, 24, 56, 0.08);
+  --shadow-gold: 0 10px 22px -10px rgba(200, 144, 56, 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  @apply bg-white text-[color:var(--color-text)] font-sans antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display text-[color:var(--color-primary)] tracking-tight;
+}
+
+h1 {
+  letter-spacing: -0.015em;
+}
+
+::selection {
+  background: var(--color-accent-light);
+  color: var(--color-primary-dark);
+}
+
+.container-content {
+  @apply mx-auto max-w-content px-5 sm:px-8 lg:px-10;
+}
+
+.section-pad {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}
+
+/* Thin gold accent rule, used sparingly to anchor a heading or divide sections */
+.accent-rule {
+  @apply block h-[3px] w-10 rounded-full bg-gradient-to-r from-gold-400 to-gold-600;
+}
+
+/* ---------- Premium buttons ---------- */
+.btn-primary {
+  @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-navy-700 px-7 py-3.5 text-sm font-semibold tracking-wide text-white shadow-[var(--shadow-sm)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-navy-600 hover:shadow-[var(--shadow-md)] active:translate-y-0 active:shadow-[var(--shadow-xs)] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply relative inline-flex items-center justify-center gap-2 rounded-full border border-navy-700/70 px-7 py-3.5 text-sm font-semibold tracking-wide text-navy-700 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-navy-700 hover:bg-navy-700 hover:text-white hover:shadow-[var(--shadow-md)] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2;
+}
+
+.btn-gold {
+  @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-b from-gold-400 to-gold-500 px-7 py-3.5 text-sm font-semibold tracking-wide text-navy-900 shadow-[var(--shadow-gold)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:from-gold-300 hover:to-gold-400 hover:shadow-[0_16px_30px_-12px_rgba(200,144,56,0.65)] active:translate-y-0 active:shadow-[var(--shadow-xs)] focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-700 focus-visible:ring-offset-2;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold tracking-wide text-navy-700 transition-all duration-300 ease-out hover:bg-navy-50 hover:text-gold-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2;
+}
+
+.btn-icon {
+  @apply inline-block transition-transform duration-300 ease-out group-hover:translate-x-1;
+}
+
+.eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-gold-600;
+}
+
+.card {
+  @apply rounded-[var(--radius-card)] border border-[color:var(--color-border)] bg-white shadow-[var(--shadow-xs)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-gold-300/70 hover:shadow-[var(--shadow-md)];
+}
+
+/* Underline-reveal effect for text/nav links */
+.link-underline {
+  @apply relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background-color: var(--color-accent);
+  transition: transform 0.3s var(--ease-premium);
+}
+.link-underline:hover::after,
+.link-underline[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+/* Premium range sliders used by the Investment Planner */
+input[type="range"].slider-premium {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--color-accent) 0%,
+    var(--color-accent) var(--fill, 50%),
+    rgba(255, 255, 255, 0.22) var(--fill, 50%),
+    rgba(255, 255, 255, 0.22) 100%
+  );
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"].slider-premium.slider-light {
+  background: linear-gradient(
+    to right,
+    var(--color-accent) 0%,
+    var(--color-accent) var(--fill, 50%),
+    var(--color-border) var(--fill, 50%),
+    var(--color-border) 100%
+  );
+}
+input[type="range"].slider-premium::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-premium);
+}
+input[type="range"].slider-premium::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+input[type="range"].slider-premium::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-premium);
+}
+input[type="range"].slider-premium::-moz-range-thumb:hover {
+  transform: scale(1.15);
+}
+input[type="range"].slider-premium::-moz-range-track {
+  background: transparent;
+}
+
+.form-label {
+  @apply mb-1.5 block text-sm font-medium text-[color:var(--color-text)];
+}
+
+.form-input {
+  @apply w-full rounded-[var(--radius-card-sm)] border border-[color:var(--color-border)] bg-white px-4 py-3 text-sm text-[color:var(--color-text)] shadow-[var(--shadow-xs)] transition-all duration-200 ease-out placeholder:text-navy-300 hover:border-navy-300 focus:border-navy-500 focus:outline-none focus:ring-2 focus:ring-navy-500/15;
+}
+
+.form-error {
+  @apply mt-1 text-xs text-[color:var(--color-error)];
+}
+
+/* ---------- Icon-prefixed inputs ---------- */
+.input-icon-wrap {
+  @apply relative;
+}
+.input-icon-wrap .form-input {
+  @apply pl-11;
+}
+.input-icon-wrap textarea.form-input {
+  @apply pl-11;
+}
+.input-icon {
+  @apply pointer-events-none absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-navy-300 transition-colors duration-200;
+}
+.input-icon-wrap:focus-within .input-icon {
+  @apply text-gold-500;
+}
+.input-icon-wrap:has(textarea) .input-icon {
+  top: 1.35rem;
+  transform: none;
+}
+
+/* ---------- Icon badges (Amenities, Core Values, etc.) ---------- */
+.icon-badge {
+  @apply relative grid shrink-0 place-items-center text-white shadow-[var(--shadow-sm)] transition-all duration-[400ms] ease-out;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 1.1rem;
+  transition-timing-function: var(--ease-premium);
+}
+.icon-badge svg {
+  @apply h-6 w-6 transition-transform duration-[400ms] ease-out;
+}
+.group:hover .icon-badge,
+.icon-badge.is-hoverable:hover {
+  transform: rotate(-6deg) scale(1.08);
+  border-radius: 1.5rem;
+}
+.group:hover .icon-badge svg {
+  transform: scale(1.1);
+}
+.icon-badge-navy {
+  background: linear-gradient(145deg, var(--color-primary-light), var(--color-primary));
+}
+.icon-badge-gold {
+  background: linear-gradient(145deg, var(--gold-light, #dcb768), var(--color-accent));
+  box-shadow: 0 10px 20px -10px rgba(200, 144, 56, 0.55);
+}
+.icon-badge-outline {
+  @apply border border-gold-300/60 bg-gold-50 text-gold-600 shadow-none;
+}
+.group:hover .icon-badge-outline,
+.icon-badge-outline.is-hoverable:hover {
+  @apply border-gold-400 bg-gold-500 text-white;
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium), filter 0.8s var(--ease-premium);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal[data-variant="up"] {
+  transform: translateY(30px);
+}
+.reveal[data-variant="up-sm"] {
+  transform: translateY(12px);
+}
+.reveal[data-variant="scale"] {
+  transform: scale(0.93);
+}
+.reveal[data-variant="left"] {
+  transform: translateX(-34px);
+}
+.reveal[data-variant="right"] {
+  transform: translateX(34px);
+}
+.reveal[data-variant="blur"] {
+  filter: blur(9px);
+  transform: translateY(12px);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+  filter: blur(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
+/* ---------- Ambient golden light ----------
+   Earlier iterations used a filled, blurred circle (optionally masked).
+   Even softened, a bounded circular div still reads as "an orb placed on
+   the page" because it has a finite, self-contained edge somewhere.
+
+   This version paints the glow directly as a background layer built from
+   multi-stop radial gradients: a real, visible warm core that steps down
+   through several soft stops before reaching full transparency, so the
+   eye reads it as light — not a flat tinted circle — while still never
+   hitting a hard edge. Two offset tones per section keep it from
+   reading as one uniform stain and instead feel like light drifting
+   through the section. */
+.gold-atmosphere {
+  @apply pointer-events-none absolute inset-0 z-0 overflow-hidden;
+}
+.gold-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  filter: blur(48px);
+}
+
+/* Dark navy sections (hero bands, CTA strips). */
+.gold-atmosphere-hero-a::before {
+  background-image:
+    radial-gradient(62% 58% at 14% 6%,
+      rgba(220, 183, 104, 0.55) 0%, rgba(220, 183, 104, 0.32) 22%,
+      rgba(200, 144, 56, 0.16) 45%, rgba(200, 144, 56, 0) 78%),
+    radial-gradient(55% 58% at 92% 96%,
+      rgba(220, 183, 104, 0.38) 0%, rgba(220, 183, 104, 0.18) 28%,
+      rgba(220, 183, 104, 0) 68%);
+}
+.gold-atmosphere-hero-b::before {
+  background-image:
+    radial-gradient(58% 60% at 88% 8%,
+      rgba(220, 183, 104, 0.50) 0%, rgba(220, 183, 104, 0.28) 24%,
+      rgba(200, 144, 56, 0.14) 48%, rgba(200, 144, 56, 0) 78%),
+    radial-gradient(52% 52% at 8% 94%,
+      rgba(220, 183, 104, 0.34) 0%, rgba(220, 183, 104, 0.16) 28%,
+      rgba(220, 183, 104, 0) 66%);
+}
+
+/* The homepage About/brand-intro section is the reference treatment —
+   the richest, clearly visible, with light drifting in from the same
+   side as the panel graphic for a cohesive composition. */
+.gold-atmosphere-about::before {
+  background-image:
+    radial-gradient(66% 62% at 8% 12%,
+      rgba(200, 144, 56, 0.48) 0%, rgba(200, 144, 56, 0.26) 24%,
+      rgba(200, 144, 56, 0.10) 48%, rgba(200, 144, 56, 0) 78%),
+    radial-gradient(60% 65% at 72% 88%,
+      rgba(220, 183, 104, 0.34) 0%, rgba(220, 183, 104, 0.16) 30%,
+      rgba(220, 183, 104, 0) 70%);
+}
+
+/* Light/white content sections — still a real, visible warm glow, just
+   with a smaller, softer core than the hero treatment so the page never
+   tips toward looking uniformly yellow. Each variant offsets the two
+   centers differently so consecutive sections don't repeat the same
+   silhouette down the page. */
+.gold-atmosphere-light-a::before {
+  background-image:
+    radial-gradient(66% 58% at 6% 0%,
+      rgba(200, 144, 56, 0.34) 0%, rgba(200, 144, 56, 0.18) 26%,
+      rgba(200, 144, 56, 0.06) 50%, rgba(200, 144, 56, 0) 78%),
+    radial-gradient(56% 56% at 96% 100%,
+      rgba(220, 183, 104, 0.24) 0%, rgba(220, 183, 104, 0.11) 30%,
+      rgba(220, 183, 104, 0) 68%);
+}
+.gold-atmosphere-light-b::before {
+  background-image:
+    radial-gradient(60% 60% at 94% 4%,
+      rgba(200, 144, 56, 0.32) 0%, rgba(200, 144, 56, 0.17) 26%,
+      rgba(200, 144, 56, 0.06) 50%, rgba(200, 144, 56, 0) 78%),
+    radial-gradient(55% 52% at 4% 96%,
+      rgba(220, 183, 104, 0.22) 0%, rgba(220, 183, 104, 0.10) 30%,
+      rgba(220, 183, 104, 0) 66%);
+}
+.gold-atmosphere-light-c::before {
+  background-image:
+    radial-gradient(74% 64% at 50% 10%,
+      rgba(220, 183, 104, 0.28) 0%, rgba(220, 183, 104, 0.14) 30%,
+      rgba(220, 183, 104, 0.05) 55%, rgba(220, 183, 104, 0) 80%);
+}
+.gold-atmosphere-surface-a::before {
+  background-image:
+    radial-gradient(64% 60% at 18% 100%,
+      rgba(200, 144, 56, 0.30) 0%, rgba(200, 144, 56, 0.16) 28%,
+      rgba(200, 144, 56, 0.05) 52%, rgba(200, 144, 56, 0) 78%),
+    radial-gradient(50% 50% at 98% 2%,
+      rgba(220, 183, 104, 0.20) 0%, rgba(220, 183, 104, 0.09) 30%,
+      rgba(220, 183, 104, 0) 66%);
+}
+
+/* Gentle float for small, bounded decorative accents (not the
+   page-wide ambient wash above) — e.g. the orb in the About brand panel. */
+.accent-orb-float {
+  animation: accentOrbFloat 10s var(--ease-premium) infinite;
+}
+@keyframes accentOrbFloat {
+  0%, 100% { transform: translate(-50%, 0) scale(1); }
+  50% { transform: translate(-50%, -12px) scale(1.06); }
+}
+.gold-atmosphere-animated::before {
+  animation: ambientDrift 22s var(--ease-premium) infinite;
+}
+@keyframes ambientDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(1.5%, -1.5%) scale(1.03); }
+}
+
+/* ---------- Cinematic hero image entrance (subtle Ken Burns) ---------- */
+@keyframes heroImageSettle {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+.hero-image-settle {
+  animation: heroImageSettle 1.8s var(--ease-premium) both;
+}
+
+/* Same gentle settle motion for the "showcase" hero background (Broker
+   Registration, Contact) — kept as its own class/keyframes so it never
+   touches .hero-image-settle used by every other PageHero page. Ends at
+   the page's requested --hero-zoom (default 1 = plain cover, no extra
+   zoom) instead of a hardcoded scale. */
+@keyframes heroImageSettleShowcase {
+  from { transform: scale(calc(var(--hero-zoom, 1) + 0.05)); }
+  to { transform: scale(var(--hero-zoom, 1)); }
+}
+.hero-image-showcase {
+  animation: heroImageSettleShowcase 1.8s var(--ease-premium) both;
+}
+
+/* ---------- Section curve divider ---------- */
+.section-curve {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+/* ---------- Card light-sweep (used selectively, not on every .card) ---------- */
+.card-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 40%, rgba(255, 255, 255, 0.28) 50%, transparent 60%);
+  transform: translateX(-130%);
+  transition: transform 0.9s var(--ease-premium);
+  pointer-events: none;
+}
+.card-sweep:hover::after {
+  transform: translateX(130%);
+}
+.card-top-accent {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 3px;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  transition: transform 0.5s var(--ease-premium);
+}
+.group:hover .card-top-accent {
+  transform: scaleX(1);
+}
+
+/* ---------- Button shine sweep ---------- */
+.btn-primary::after,
+.btn-gold::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.35) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--ease-premium);
+  pointer-events: none;
+}
+.btn-primary:hover::after,
+.btn-gold:hover::after {
+  transform: translateX(120%);
+}
+
+/* ---------- Animated connecting line (process steps) ---------- */
+.step-line {
+  position: relative;
+  overflow: hidden;
+}
+.step-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.9s var(--ease-premium) 0.2s;
+}
+.reveal.is-visible .step-line::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Pulsing ring on numbered badges ---------- */
+.pulse-ring {
+  position: relative;
+}
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-accent);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+.pulse-ring:hover::before {
+  opacity: 1;
+  animation: pulse-ring-anim 1.4s ease-out infinite;
+}
+@keyframes pulse-ring-anim {
+  0% { transform: scale(0.85); opacity: 0.9; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* ---------- Hero emblem (decorative right-side graphic on every interior
+   page hero, replacing the old stat-card panel) ---------- */
+.hero-emblem-spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heroEmblemSpin 70s linear infinite;
+}
+.hero-emblem-spin--rev {
+  animation-name: heroEmblemSpinRev;
+  animation-duration: 50s;
+}
+@keyframes heroEmblemSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes heroEmblemSpinRev {
+  to { transform: rotate(-360deg); }
+}
+.hero-emblem-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: heroEmblemDraw 1.8s var(--ease-premium) 0.4s both;
+}
+@keyframes heroEmblemDraw {
+  to { stroke-dashoffset: 0; }
+}
+.hero-emblem-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heroEmblemPulse 3.2s var(--ease-premium) infinite;
+}
+@keyframes heroEmblemPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.7); }
+}
+.hero-emblem-glow {
+  animation: heroEmblemGlow 5.5s ease-in-out infinite;
+}
+@keyframes heroEmblemGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.75; }
+}
+
+/* ---------- Project detail hero (shared across all project pages) ----------
+   A dedicated, generous height so the existing gate/entrance photography
+   used across Geetha Garden, Prestige Imperial and Royal Enclasa can be
+   shown without cropping its important upper detail, while the overlay
+   treatment on each page keeps working exactly as before. Every project
+   detail page uses this same rule, so the three stay visually consistent. */
+.project-hero {
+  min-height: 520px;
+  height: 62vh;
+}
+@media (min-width: 640px) {
+  .project-hero {
+    min-height: 600px;
+    height: 66vh;
+  }
+}
+@media (min-width: 1024px) {
+  .project-hero {
+    min-height: 680px;
+    height: 72vh;
+    max-height: 820px;
+  }
+}
+
+/* Standard interior-page hero band — identical width (shared container)
+   and height across every page reachable from the main navigation
+   (About, Projects, Amenities, Calculator, Gallery, Contact, Broker
+   Registration) so moving between them never causes a visual "jump".
+   Sized to match the compact Broker Registration reference hero;
+   content bottom-aligns within it regardless of copy length. */
+.page-hero {
+  display: flex;
+  align-items: flex-start;
+  min-height: 640px;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+/* container-content is normally a centered, width-capped block. As a flex
+   *item* here it would otherwise shrink-to-fit its own content and then
+   get auto-margin-centered inside the full hero band — pushing the text
+   far past the header's left edge. Forcing it to claim the full row
+   removes that free space, so it lines up exactly with the header/logo. */
+.page-hero > .container-content {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .page-hero {
+    min-height: 780px;
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+}
+@media (min-width: 1024px) {
+  .page-hero {
+    min-height: 700px;
+    padding-top: calc(9rem + 50px);
+    padding-bottom: calc(9rem + 50px);
+  }
+}
+.entry-overlay {
+  transition: opacity 900ms var(--ease-premium) 260ms, transform 900ms var(--ease-premium) 260ms,
+    filter 900ms var(--ease-premium) 260ms;
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+.entry-overlay--exiting {
+  opacity: 0;
+  transform: scale(1.06);
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+/* The centered video stage scales down first — a distinct, slightly
+   quicker beat than the overlay's own fade/reveal below it, so the two
+   read as a deliberate two-step exit rather than one flat cross-fade. */
+.entry-stage {
+  transition: opacity 520ms var(--ease-premium), transform 560ms var(--ease-premium);
+  opacity: 1;
+  transform: scale(1);
+}
+.entry-stage--exiting {
+  opacity: 0;
+  transform: scale(0.86);
+}
+
+/* Layered ivory/champagne warmth behind the video — a diagonal wash rather
+   than a flat fill, so the surrounding space reads as designed rather than
+   empty. Light, premium palette in place of the old navy block. */
+.entry-backdrop-wash {
+  background:
+    radial-gradient(ellipse 130% 100% at 82% 4%, rgba(220, 183, 104, 0.12), transparent 68%),
+    radial-gradient(ellipse 140% 110% at 6% 104%, rgba(13, 44, 86, 0.4), transparent 72%),
+    linear-gradient(160deg, #001838 0%, #000f2e 45%, #000512 100%);
+}
+
+/* Soft warm spotlight centered behind the video frame — lifts that area
+   a touch brighter than the surrounding champagne wash, giving the reel a
+   gentle sense of being lit from behind, without any tint or overlay
+   sitting on top of the footage itself. */
+.entry-backdrop-glow {
+  background: radial-gradient(closest-side, rgba(220, 183, 104, 0.22), rgba(200, 144, 56, 0.06) 55%, transparent 78%);
+  background-position: center 46%;
+  background-repeat: no-repeat;
+  background-size: min(78vw, 1100px) min(58vh, 760px);
+}
+
+/* Faint architectural guide lines running from the screen edges toward the
+   video's bounding box — a quiet nod to the drafting-line motif used
+   elsewhere on the site, filling the surrounding space with intent instead
+   of leaving it blank. Desktop/tablet only; too busy at phone widths. */
+.entry-guides {
+  background-image:
+    linear-gradient(to bottom, rgba(220, 183, 104, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(220, 183, 104, 0.22) 1px, transparent 1px),
+    linear-gradient(to right, rgba(220, 183, 104, 0.22) 1px, transparent 1px),
+    linear-gradient(to right, rgba(220, 183, 104, 0.22) 1px, transparent 1px);
+  background-repeat: no-repeat;
+  background-position: 9% 0, 91% 0, 0 14%, 0 86%;
+  background-size: 1px 15%, 1px 15%, 15% 1px, 15% 1px;
+  opacity: 0.6;
+}
+
+/* Slim editorial focus-marks set just outside the video's edges — an
+   accent, not a border/frame: short 1px gold ticks with a visible gap
+   between them and the footage, so the video never reads as boxed-in or
+   given a player chrome. */
+.entry-video-corner {
+  @apply pointer-events-none absolute h-5 w-5 border-gold-500/60 sm:h-7 sm:w-7;
+}
+.entry-video-corner--tl {
+  @apply -left-3 -top-3 border-l border-t sm:-left-4 sm:-top-4;
+}
+.entry-video-corner--tr {
+  @apply -right-3 -top-3 border-r border-t sm:-right-4 sm:-top-4;
+}
+.entry-video-corner--bl {
+  @apply -bottom-3 -left-3 border-b border-l sm:-bottom-4 sm:-left-4;
+}
+.entry-video-corner--br {
+  @apply -bottom-3 -right-3 border-b border-r sm:-bottom-4 sm:-right-4;
+}
+
+.eyebrow-entry {
+  @apply flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.42em] text-gold-600;
+}
+.entry-rule {
+  @apply block h-px w-8 bg-gradient-to-r from-transparent via-gold-500/70 to-transparent sm:w-12;
+}
+
+/* Line that draws itself in on load — a small, intentional "opening"
+   gesture rather than a static rule appearing instantly. */
+.entry-rule-draw {
+  transform-origin: left;
+  animation: entryRuleDraw 1.4s var(--ease-premium) 0.5s both;
+}
+@keyframes entryRuleDraw {
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+.entry-rule-draw--v {
+  transform-origin: top;
+}
+
+/* Subtle film-grain texture — adds tactile, high-end quality instead of
+   a flat digital overlay. Generated inline, no image request. */
+.entry-grain {
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+.entry-frame {
+  filter: drop-shadow(0 22px 48px rgba(90, 66, 26, 0.13)) drop-shadow(0 0 60px rgba(200, 144, 56, 0.05));
+}
+.entry-corner {
+  @apply pointer-events-none absolute h-6 w-6 border-gold-500/70 sm:h-9 sm:w-9;
+}
+.entry-corner--tl {
+  @apply -left-2 -top-2 border-l-2 border-t-2 sm:-left-3 sm:-top-3;
+}
+.entry-corner--tr {
+  @apply -right-2 -top-2 border-r-2 border-t-2 sm:-right-3 sm:-top-3;
+}
+.entry-corner--bl {
+  @apply -bottom-2 -left-2 border-b-2 border-l-2 sm:-bottom-3 sm:-left-3;
+}
+.entry-corner--br {
+  @apply -bottom-2 -right-2 border-b-2 border-r-2 sm:-bottom-3 sm:-right-3;
+}
+
+/* ================================================================
+   EDITORIAL COMPOSITION SYSTEM
+   Oversized background typography, architectural line details,
+   floating numbered panels, split/asymmetric layout primitives.
+   Used to change actual page composition, not just add effects.
+   ================================================================ */
+
+.bg-word {
+  position: absolute;
+  z-index: 0;
+  max-width: calc(100% - 2rem);
+  white-space: nowrap;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.01em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(200, 144, 56, 0.16);
+  pointer-events: none;
+  user-select: none;
+  font-size: clamp(2.5rem, 6.5vw, 6.5rem);
+}
+.bg-word--navy { -webkit-text-stroke: 1px rgba(0, 24, 56, 0.07); }
+.bg-word--fill-light { color: rgba(200, 144, 56, 0.05); }
+
+.arch-line {
+  position: relative;
+  display: block;
+  background: linear-gradient(90deg, rgba(200, 144, 56, 0.55), rgba(200, 144, 56, 0));
+}
+.arch-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  transform: translateY(-50%) rotate(45deg);
+  background: var(--color-accent);
+}
+.arch-line--v { background: linear-gradient(180deg, rgba(200, 144, 56, 0.5), rgba(200, 144, 56, 0)); }
+
+.index-number {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(200, 144, 56, 0.45);
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+.float-panel {
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.float-panel--dark {
+  background: rgba(0, 24, 56, 0.55);
+  border: 1px solid rgba(220, 183, 104, 0.18);
+  box-shadow: 0 24px 60px -20px rgba(0, 8, 32, 0.6);
+}
+
+@keyframes maskReveal {
+  /* Top inset is held at -35% for the whole animation (not just the
+     "to" frame) rather than 0, so it's a constant headroom allowance,
+     not something that animates in. The reveal motion still reads as
+     "grows up from the baseline" because that comes entirely from the
+     bottom inset sweeping 100% -> -20%; the top only stops being a hard
+     0%-clip that — since this animation is `both`, i.e. permanent —
+     used to shear off ascenders/vowel-signs above the line box forever,
+     not just mid-animation. Telugu/Kannada/Tamil matras routinely sit
+     taller above the baseline than Latin cap-height, so 0% up top clips
+     them even with generous line-height. */
+  from { clip-path: inset(-35% 0 100% 0); transform: scale(1.06); }
+  /* Bottom inset ends slightly negative (rather than 0%) so the clip
+     region extends a little past the line box — otherwise descenders
+     (e.g. the tail of a lowercase "g", or Indic vowel signs that drop
+     below the baseline) get sheared off once the reveal settles, since
+     clip-path always clips at its box edge regardless of overflow. */
+  to { clip-path: inset(-35% 0 -20% 0); transform: scale(1); }
+}
+.mask-reveal { animation: maskReveal 1.3s var(--ease-premium) both; }
+
+/* Shared line-height for large hero/display headings (PageHero and the
+   Home hero). 1.08–0.98 (the previous per-page values) is tight enough
+   that Telugu/Kannada/Tamil vowel signs — which extend further above
+   and below the baseline than Latin glyphs — touch or overlap the next
+   line. Latin gets a modest, still-tight-looking bump; the three Indic
+   scripts get the extra room their tallest glyphs actually need. Using
+   :lang() (kept in sync with the active locale in src/i18n/index.js)
+   means this scales automatically to whichever heading text is current,
+   instead of a fixed height guessed per-language. */
+.hero-heading {
+  line-height: 1.15;
+  /* Base (Latin/English) scale, shared by every PageHero-driven page. */
+  font-size: clamp(2.1rem, 5.2vw, 4.5rem);
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.hero-heading:lang(te),
+.hero-heading:lang(kn),
+.hero-heading:lang(ta) {
+  line-height: 1.45;
+  /* Telugu/Kannada/Tamil glyphs and matras run noticeably wider and
+     taller per character than Latin at the same font-size, and their
+     compound words can't be hyphen-broken — so these scripts get a
+     smaller max size rather than reusing the English clamp and hoping
+     the (much narrower) glyphs fit anyway. The 1.25rem floor (vs 2.1rem
+     for Latin) is deliberately lower too: on the narrowest phones a few
+     specific compound words (e.g. Tamil "வாடிக்கையாளரின்") are wide
+     enough that no reasonable font size lets them share a line with a
+     neighboring word, so the floor is set low enough that the general
+     case wraps into natural 2-3 word lines instead of one word each. */
+  font-size: clamp(1.25rem, 4.6vw, 3.15rem);
+}
+@media (min-width: 640px) {
+  .hero-heading {
+    line-height: 1.12;
+    font-size: clamp(2.35rem, 4.6vw, 4.5rem);
+  }
+  .hero-heading:lang(te),
+  .hero-heading:lang(kn),
+  .hero-heading:lang(ta) {
+    line-height: 1.4;
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+  }
+}
+
+/* Larger-scale variant used only by the Home hero (the one place the
+   heading is meant to read as the single biggest element on the page).
+   Same idea as .hero-heading, just anchored to a bigger ceiling. */
+.hero-heading--display {
+  font-size: clamp(2.5rem, 6.6vw, 6rem);
+}
+.hero-heading--display:lang(te),
+.hero-heading--display:lang(kn),
+.hero-heading--display:lang(ta) {
+  font-size: clamp(2rem, 5.6vw, 4.35rem);
+}
+@media (min-width: 640px) {
+  .hero-heading--display {
+    font-size: clamp(2.75rem, 5.8vw, 6rem);
+  }
+  .hero-heading--display:lang(te),
+  .hero-heading--display:lang(kn),
+  .hero-heading--display:lang(ta) {
+    font-size: clamp(2.2rem, 4.9vw, 4.35rem);
+  }
+}
+
+/* Project-detail hero title (project name). Kept close to its original
+   size/weight since project names are almost always short brand names,
+   but still gets the shared safety net (script-aware line-height +
+   overflow-wrap) in case a project's display name is ever non-Latin. */
+.hero-heading--project {
+  line-height: 0.98;
+  font-size: clamp(2.5rem, 6vw, 5.25rem);
+}
+.hero-heading--project:lang(te),
+.hero-heading--project:lang(kn),
+.hero-heading--project:lang(ta) {
+  line-height: 1.3;
+  font-size: clamp(2.1rem, 5.2vw, 4.2rem);
+}
+
+/* Text column for every PageHero-driven interior page (About, Projects,
+   Amenities, Calculator, Gallery, Contact, Broker Registration). Was
+   previously a flat `max-w-xl` (576px) at every breakpoint, which is
+   why translated headings — whose individual words routinely run
+   wider than their English source at the same point size — had almost
+   no room to wrap into and collapsed into a near-one-word-per-line
+   column even on wide tablet/laptop viewports. Widens progressively
+   with the viewport instead, and gives Indic scripts extra width on
+   top of that since their words are typically wider. */
+.hero-text-col {
+  width: 100%;
+  max-width: 30rem;
+}
+.hero-text-col:lang(te),
+.hero-text-col:lang(kn),
+.hero-text-col:lang(ta) {
+  max-width: 34rem;
+}
+@media (min-width: 640px) {
+  .hero-text-col {
+    max-width: 38rem;
+  }
+  .hero-text-col:lang(te),
+  .hero-text-col:lang(kn),
+  .hero-text-col:lang(ta) {
+    max-width: 42rem;
+  }
+}
+@media (min-width: 768px) {
+  .hero-text-col {
+    max-width: 46rem;
+  }
+  .hero-text-col:lang(te),
+  .hero-text-col:lang(kn),
+  .hero-text-col:lang(ta) {
+    max-width: 52rem;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-text-col {
+    max-width: 52rem;
+  }
+  .hero-text-col:lang(te),
+  .hero-text-col:lang(kn),
+  .hero-text-col:lang(ta) {
+    max-width: 60rem;
+  }
+}
+/* From here the hero switches to the two-zone row layout (text left /
+   emblem right, see PageHero.jsx's `xl:flex-row`), so the column is
+   sized as a share of the hero width (~45-55%, and up to ~64% for the
+   three Indic scripts, whose words need the extra room) instead of a
+   fixed rem value, per the left-text / right-artwork composition. */
+@media (min-width: 1280px) {
+  .hero-text-col {
+    max-width: 52%;
+  }
+  .hero-text-col:lang(te),
+  .hero-text-col:lang(kn),
+  .hero-text-col:lang(ta) {
+    max-width: 64%;
+  }
+}
+
+/* Same idea, sized for the Home hero's wider `1fr` grid column and
+   bigger display type scale. */
+.hero-text-col-lg {
+  width: 100%;
+  max-width: 26rem;
+}
+.hero-text-col-lg:lang(te),
+.hero-text-col-lg:lang(kn),
+.hero-text-col-lg:lang(ta) {
+  max-width: 28rem;
+}
+@media (min-width: 640px) {
+  .hero-text-col-lg {
+    max-width: 34rem;
+  }
+  .hero-text-col-lg:lang(te),
+  .hero-text-col-lg:lang(kn),
+  .hero-text-col-lg:lang(ta) {
+    max-width: 38rem;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-text-col-lg {
+    max-width: 48rem;
+  }
+  .hero-text-col-lg:lang(te),
+  .hero-text-col-lg:lang(kn),
+  .hero-text-col-lg:lang(ta) {
+    max-width: 54rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-text-col-lg {
+    max-width: 56rem;
+  }
+  .hero-text-col-lg:lang(te),
+  .hero-text-col-lg:lang(kn),
+  .hero-text-col-lg:lang(ta) {
+    max-width: 62rem;
+  }
+}
+
+/* Hero descriptions/subtitles sit under the heading at a much smaller,
+   Latin-friendly size, but still need a touch more room and a safety
+   wrap rule in the three Indic scripts so a single long compound word
+   can't push past the hero's right edge. */
+.hero-subtitle {
+  max-width: 28rem;
+  overflow-wrap: anywhere;
+}
+.hero-subtitle:lang(te),
+.hero-subtitle:lang(kn),
+.hero-subtitle:lang(ta) {
+  max-width: 34rem;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(100deg, var(--color-accent-light) 0%, var(--color-accent) 55%, #a8752c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.anchor-label {
+  position: sticky;
+  top: 7.5rem;
+  align-self: start;
+}
+
+.cta-magnetic {
+  transition: transform 0.45s var(--ease-premium), letter-spacing 0.45s var(--ease-premium);
+}
+.cta-magnetic:hover {
+  transform: translateY(-2px);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 640px) {
+  .bg-word { font-size: clamp(2.25rem, 15vw, 4rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Scroll progress bar ---------- */
+.scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 60;
+  pointer-events: none;
+  background: transparent;
+}
+.scroll-progress-fill {
+  height: 100%;
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-light) 55%, var(--color-accent) 100%);
+  box-shadow: 0 0 10px rgba(200, 144, 56, 0.55);
+  transition: transform 120ms linear;
+}
+
+/* ---------- Route/page transition ---------- */
+.page-transition-enter {
+  animation: pageTransitionIn 0.55s var(--ease-premium) both;
+}
+@keyframes pageTransitionIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ---------- Branded spinner (replaces plain "Loading..." text) ---------- */
+.brand-spinner {
+  display: inline-block;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: 2.5px solid rgba(200, 144, 56, 0.18);
+  border-top-color: var(--color-accent);
+  animation: brandSpin 0.85s linear infinite;
+}
+@keyframes brandSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Shimmer skeleton (loading placeholders) ---------- */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(200, 144, 56, 0.14), transparent);
+  animation: skeletonShimmer 1.6s ease-in-out infinite;
+}
+@keyframes skeletonShimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* ---------- Smoother hover-lift baseline used by several sections ---------- */
+.lift-hover {
+  transition: transform 0.45s var(--ease-premium), box-shadow 0.45s var(--ease-premium);
+}
+.lift-hover:hover {
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-enter {
+    animation: none;
+  }
+  .brand-spinner {
+    animation-duration: 1.4s;
+  }
+}
+
+/* Cinematic additions for the entry/loading screen: slow-rotating light
+   rays echoing the video's own spotlight, plus gently drifting dust
+   motes. Both are decorative-only (pointer-events: none) and respect
+   prefers-reduced-motion via the media query below. */
+.entry-rays {
+  background: conic-gradient(from 200deg at 50% -10%,
+    transparent 0deg,
+    rgba(255, 245, 220, 0.10) 8deg,
+    transparent 20deg,
+    transparent 340deg,
+    rgba(255, 245, 220, 0.06) 352deg,
+    transparent 360deg);
+  mix-blend-mode: screen;
+  animation: entryRaysDrift 16s ease-in-out infinite;
+}
+@keyframes entryRaysDrift {
+  0%, 100% { opacity: 0.55; transform: rotate(0deg); }
+  50% { opacity: 1; transform: rotate(3deg); }
+}
+
+.entry-particles {
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 30%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 70% 65%, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1.5px 1.5px at 40% 80%, rgba(220, 183, 104, 0.4), transparent),
+    radial-gradient(1px 1px at 85% 20%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1.5px 1.5px at 55% 45%, rgba(220, 183, 104, 0.35), transparent),
+    radial-gradient(1px 1px at 10% 60%, rgba(255, 255, 255, 0.4), transparent);
+  background-repeat: repeat;
+  background-size: 220px 220px;
+  opacity: 0.85;
+  animation: entryParticlesDrift 26s linear infinite;
+}
+@keyframes entryParticlesDrift {
+  from { background-position: 0 0; }
+  to { background-position: -220px -420px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-rays, .entry-particles {
+    animation: none;
+  }
+}
+
+/* Safety net: ensure the brand eyebrow reads clearly on the new dark
+   backdrop even if its base color elsewhere assumes a light surface. */
+.entry-overlay .eyebrow-entry {
+  color: #f3e3c4;
+}
+
+/* Full-bleed entry video: soft top/bottom vignette so the skip button,
+   mute button, brand mark and tagline stay legible over any part of
+   the video, regardless of what's happening in that frame. */
+.entry-vignette {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 8, 32, 0.55) 0%,
+    transparent 18%,
+    transparent 72%,
+    rgba(0, 8, 32, 0.65) 100%
+  );
+}

@@ -1,0 +1,350 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "projects": "Projects",
+    "amenities": "Amenities",
+    "calculator": "Calculator",
+    "gallery": "Gallery",
+    "contact": "Contact Us",
+    "broker": "Broker Registration",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "myEnquiries": "My Enquiries",
+    "myAccount": "My Account"
+  },
+  "buttons": {
+    "submit": "Submit",
+    "send": "Send Message",
+    "viewDetails": "View Details",
+    "enquireNow": "Enquire Now",
+    "callNow": "Call Now",
+    "whatsapp": "WhatsApp Us",
+    "readMore": "Read More",
+    "viewAllProjects": "View All Projects",
+    "close": "Close",
+    "cancel": "Cancel",
+    "save": "Save",
+    "backToProjects": "Back to Projects",
+    "getInTouch": "Get in Touch"
+  },
+  "form": {
+    "fullName": "Full Name",
+    "name": "Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "message": "Message",
+    "password": "Password",
+    "agencyName": "Agency / Company Name (optional)",
+    "required": "This field is required.",
+    "submitting": "Submitting...",
+    "success": "Thank you — we've received your submission and will be in touch soon.",
+    "confirmPassword": "Confirm Password",
+    "invalidEmail": "Please enter a valid email address.",
+    "invalidPhone": "Please enter a valid phone number.",
+    "enquiringAbout": "Enquiring about:"
+  },
+  "common": {
+    "loading": "Loading...",
+    "verifiedProject": "Verified Project Details",
+    "detailsPending": "Full details of this project will be published here shortly.",
+    "startingFrom": "Starting from",
+    "location": "Location",
+    "category": "Category",
+    "amenities": "Amenities",
+    "businessHours": "Business Hours",
+    "officeAddress": "Office Address",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "a11y": {
+    "toggleMenu": "Menu",
+    "close": "Close",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "whatsappChat": "Chat with RMR Realty on WhatsApp"
+  },
+  "brandPanel": {
+    "title": "Relationship-first",
+    "body": "Trust, transparency and honest guidance in every conversation."
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "ctaTitle": "Ready to talk plots?",
+    "ctaBody": "Our team will help you find the right layout and pricing.",
+    "description": "Residential & commercial plots in Hosur, built on trust, transparency and long-term value."
+  },
+  "chatbot": {
+    "title": "Ask RMR",
+    "subtitle": "Smart assistant — verified answers only",
+    "placeholder": "Type your question...",
+    "greeting": "Hello! Ask me about our projects, pricing, amenities, or contact details.",
+    "error": "Sorry, something went wrong. Please try again or contact us directly."
+  },
+  "language": {
+    "select": "Language"
+  },
+  "calculator": {
+    "eyebrow": "Investment Planner",
+    "title": "Estimate Your Investment & EMI",
+    "subtitle": "Plan your plot purchase in Hosur with our interactive calculator.",
+    "selectProject": "Choose a project",
+    "customEstimate": "Custom Estimate",
+    "plotSize": "Plot Size (sq. ft.)",
+    "pricePerSqft": "Price per sq. ft.",
+    "loanPercent": "Loan Amount",
+    "tenure": "Loan Tenure",
+    "years": "yrs",
+    "interestRate": "Interest Rate (p.a.)",
+    "noteVerified": "Calculation is indicative, based on {{project}}'s verified starting rate of {{rate}}/sq ft. Actual pricing may vary by specific plot location and dimensions.",
+    "noteCustom": "Adjust the sliders to build a custom estimate. Actual pricing may vary by specific plot location and dimensions — contact our team for a verified quote.",
+    "summaryTitle": "Investment Summary",
+    "totalCost": "Estimated Total Cost",
+    "downPayment": "Estimated Down Payment",
+    "loanAmount": "Estimated Loan ({{percent}}%)",
+    "emiLabel": "Estimated Monthly EMI ({{years}} yrs @ {{rate}}%)",
+    "totalInterest": "Total Interest Payable",
+    "month": "month",
+    "proceed": "Proceed With This Plot",
+    "disclaimer": "Indicative figures for planning purposes only, not a loan offer.",
+    "leadTitle": "Get your investment plan",
+    "leadSubtitle": "Share your details and our team will follow up with a verified quote."
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "pendingBody": "This policy is being finalized by RMR Realty and will be published here shortly. For any questions in the meantime, please",
+    "contactCta": "contact our team directly",
+    "refundBody": "RMR Realty's refund and cancellation policy follows applicable RERA (Real Estate Regulatory Authority) guidelines. For specific queries regarding a booking, please contact our team directly.",
+    "disclaimerTitle": "Disclaimer",
+    "privacyTitle": "Privacy Policy",
+    "refundTitle": "Refund & Cancellation Policy",
+    "termsTitle": "Terms & Conditions"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "body": "This page could not be found. It may have been moved, or the link may be incorrect.",
+    "backHome": "Back to Home"
+  },
+  "amenitiesPage": {
+    "eyebrow": "Amenities",
+    "title": "Thoughtfully planned, genuinely useful",
+    "sectionTitle": "What our projects offer",
+    "sectionSubtitle": "Availability may vary by project — please check individual project pages or enquire for confirmation.",
+    "clubHouseLabel": "Club House",
+    "clubHouseDesc": "A dedicated community space for residents to relax and socialize.",
+    "childrensParkLabel": "Children's Park",
+    "childrensParkDesc": "A safe, landscaped play area designed for families.",
+    "overheadTankLabel": "Overhead Tank",
+    "overheadTankDesc": "Reliable, planned water supply infrastructure across the layout.",
+    "cctvLabel": "CCTV",
+    "cctvDesc": "Surveillance coverage supporting a secure living environment.",
+    "commercialShopsLabel": "Commercial Shops",
+    "commercialShopsDesc": "On-site retail spaces for everyday convenience.",
+    "heroSubtitle": "Clubhouse, park, water supply and security — planned into every layout from day one."
+  },
+  "register": {
+    "pendingTitle": "Registration received",
+    "pendingBody": "Your account has been created and is now awaiting admin approval. We'll let you know once you're approved — you can then log in as usual.",
+    "passwordMismatch": "Passwords do not match.",
+    "newHere": "New here?",
+    "alreadyHaveAccount": "Already have an account?"
+  },
+  "home": {
+    "heroDescriptionFallback": "High-growth corridors, seamless connectivity. Invest with confidence. Welcome to RMR.",
+    "aboutEyebrow": "About RMR Realty",
+    "aboutTitle": "A relationship-first approach to real estate",
+    "projectsEyebrow": "Our Projects",
+    "projectsTitle": "Residential & commercial developments in Hosur",
+    "projectsSubtitle": "Plots and layouts designed around trust, transparency, and long-term value.",
+    "valuesEyebrow": "What we stand for",
+    "valuesTitle": "Core values",
+    "values": {
+      "trustTitle": "Trust & Hospitality",
+      "trustBody": "We treat every client like family, offering transparent counsel and patient guidance through every step of the decision-making process.",
+      "accountabilityTitle": "Accountability",
+      "accountabilityBody": "We stand fully behind every property we represent, ensuring clear titles, verified approvals, and accurate site details.",
+      "relationshipsTitle": "Enduring Relationships",
+      "relationshipsBody": "Our relationship doesn't end at the registration counter. We remain a trusted sounding board for our clients whenever they need future real estate advice.",
+      "planningTitle": "Thoughtful Planning",
+      "planningBody": "Every layout we bring to market is planned with genuine livability in mind — practical roads, drainage, and open spaces, not just plot lines on paper."
+    },
+    "processEyebrow": "How we work",
+    "processTitle": "Our Development Process",
+    "processSubtitle": "A consistent, transparent approach we follow from site selection through to handover.",
+    "process": {
+      "siteTitle": "Site Identification & Verification",
+      "siteBody": "We evaluate locations for genuine growth potential and confirm ownership and regulatory groundwork before a layout is ever presented to a client.",
+      "layoutTitle": "Planning & Layout Design",
+      "layoutBody": "Roads, drainage, and plot layouts are planned with practical, everyday livability as the priority — not just efficient use of land.",
+      "developmentTitle": "Development & Infrastructure",
+      "developmentBody": "Site development is carried out in phases, with our team available to answer questions on progress at any point along the way.",
+      "handoverTitle": "Handover & After-Sales Support",
+      "handoverBody": "We support clients through documentation and registration, and remain a point of contact for guidance well beyond the sale."
+    },
+    "amenitiesEyebrow": "Why RMR",
+    "amenitiesTitle": "Thoughtfully planned amenities",
+    "faqEyebrow": "Common Questions",
+    "faqTitle": "Frequently Asked Questions",
+    "faqSubtitle": "Answers to what buyers, investors, and brokers most often ask us before getting in touch.",
+    "ctaTitle": "Ready to find your plot?",
+    "ctaSubtitle": "Talk to our team about current availability, pricing, and loan assistance.",
+    "estLocation": "Est. Hosur",
+    "ctaEyebrow": "Begin the Conversation",
+    "ctaBgWord": "Enquire",
+    "comingSoon": "Coming Soon",
+    "exploreProject": "Explore Project",
+    "featuredDevelopment": "Featured Development",
+    "pricingTBA": "Pricing to be announced",
+    "tagline": "Turning dreams into realty",
+    "locationLine": "Hosur, Tamil Nadu",
+    "businessHours": "9:30 AM – 6:30 PM (Tuesday: Holiday)",
+    "statVerifiedProjects": "Verified Projects",
+    "statYearsOfTrust": "Years of Trust",
+    "statTransparentTitles": "Transparent Titles"
+  },
+  "aboutPage": {
+    "eyebrow": "About Us",
+    "title": "Every client's dream, treated as our own",
+    "visionLabel": "Vision",
+    "missionLabel": "Mission",
+    "servicesEyebrow": "What we offer",
+    "servicesTitle": "Services",
+    "landSales": "Land Sales",
+    "architecture": "Architecture & Construction",
+    "interiorDesign": "Interior Design & Execution",
+    "heroSubtitle": "A Hosur-based team guiding every plot, layout and build with clear titles and honest planning."
+  },
+  "projectDetailPage": {
+    "notFound": "Project not found",
+    "eyebrow": "RMR Realty Project",
+    "sitePhotos": "Site Photos",
+    "overview": "Overview",
+    "walkthrough": "Cinematic Walkthrough",
+    "gallery": "Gallery",
+    "detailsPending": "Full project details — location, pricing, amenities and layouts — are being finalized and will be published here shortly.",
+    "interestedIn": "Interested in {{name}}?",
+    "shareDetailsBody": "Share your details and our team will reach out as soon as full information is available.",
+    "startingFrom": "Starting From",
+    "theProject": "The Project",
+    "videoProducing": "Our cinematic video for this project is currently being produced and will appear here soon."
+  },
+  "contactPage": {
+    "heroTitle": "Let's talk about your plot",
+    "detailsTitle": "Contact Details",
+    "enquiryTitle": "Send an Enquiry",
+    "heroSubtitle": "Our Hosur office, phone line and enquiry desk — all one message away."
+  },
+  "accountPage": {
+    "statusActive": "Active",
+    "inProgress": "In Progress",
+    "accountStatus": "Account Status",
+    "newEnquiry": "New Enquiry",
+    "emptyEnquiries": "You haven't submitted any enquiries yet.",
+    "browseProjects": "Browse Projects",
+    "generalEnquiry": "General Enquiry",
+    "statusNew": "New",
+    "statusContacted": "Contacted",
+    "statusClosed": "Closed"
+  },
+  "brokerPage": {
+    "heroTitle": "Partner with RMR Realty",
+    "heroSubtitle": "Register your details below and our team will reach out about broker partnership opportunities.",
+    "benefit1Title": "Verified Projects",
+    "benefit1Body": "Every layout you refer is backed by confirmed ownership and approval documentation.",
+    "benefit2Title": "Dedicated Support",
+    "benefit2Body": "A direct point of contact for site visits, documentation, and client queries.",
+    "benefit3Title": "Transparent Process",
+    "benefit3Body": "Clear communication on availability, pricing, and enquiry status at every stage."
+  },
+  "galleryPage": {
+    "eyebrow": "Gallery",
+    "title": "A closer look at our projects",
+    "allProjects": "All Projects",
+    "heroSubtitle": "Real photographs from real sites — no stock imagery, no renders."
+  },
+  "faq": {
+    "visit": {
+      "q": "How do I schedule a site visit for an RMR Realty project?",
+      "a": "You can request a site visit through the enquiry form on this page, by calling us at {{phone}}, or via WhatsApp. Our team will confirm a convenient date and guide you on-site through the layout, plots, and amenities in person."
+    },
+    "verified": {
+      "q": "Are the plots and layouts legally verified?",
+      "a": "Each project page on our website clearly states its verification and approval status. We only market a layout publicly once documentation has been confirmed. If a project is still pending final verification, we mark it as such rather than presenting incomplete information as final."
+    },
+    "loan": {
+      "q": "Is loan assistance available for plot purchases?",
+      "a": "Loan assistance is available for eligible buyers on select projects — this is noted on the individual project's page. Our team can walk you through the documentation and connect you with the relevant process during your enquiry."
+    },
+    "quote": {
+      "q": "What information do I need to provide to get a price quote?",
+      "a": "Share the project you're interested in, your preferred plot size, and your contact details through our enquiry form or the Investment Planner on the homepage. A member of our team will follow up with current pricing and availability for that layout."
+    },
+    "broker": {
+      "q": "Can I register as a broker or channel partner with RMR Realty?",
+      "a": "Yes. We work with brokers and channel partners on our active projects. You can submit your details through our Broker Registration page, and our team will get in touch regarding onboarding and commission terms."
+    },
+    "amenities": {
+      "q": "What amenities are typically included in RMR Realty layouts?",
+      "a": "Amenities vary by project and are listed on each project's dedicated page — common inclusions across our developments are things like a club house, children's park, dedicated water infrastructure, CCTV surveillance, and commercial spaces where applicable."
+    },
+    "trackEnquiries": {
+      "q": "How can I track the enquiries I've submitted?",
+      "a": "Once you create an account and log in, your submitted enquiries and their status are visible under 'My Account', so you always have a record of what you've asked us and where it stands."
+    },
+    "hours": {
+      "q": "What are your office hours if I want to speak to someone directly?",
+      "a": "Our office is open {{hours}}. You can reach us by phone, email, or WhatsApp any time and we'll respond during business hours."
+    },
+    "stillHaveQuestion": "Still have a question?",
+    "getInTouch": "Get in touch with our team"
+  },
+  "apiErrors": {
+    "nameRequired": "Please enter your name.",
+    "fullNameRequired": "Please enter your full name.",
+    "invalidEmail": "Please enter a valid email address.",
+    "invalidPhone": "Please enter a valid phone number.",
+    "passwordTooShort": "Password must be at least 8 characters.",
+    "messageNotSent": "Message could not be sent.",
+    "invalidPageViewData": "Invalid page view data.",
+    "invalidSearchData": "Invalid search data.",
+    "emailAlreadyExists": "An account with this email already exists.",
+    "invalidEmailAndPassword": "Please enter a valid email and password.",
+    "invalidEmailOrPassword": "Invalid email or password.",
+    "accountAwaitingApproval": "Your account is awaiting admin approval. Please check back soon.",
+    "accountNotApproved": "Your account registration was not approved. Please contact us for details.",
+    "usernamePasswordRequired": "Username and password are required.",
+    "invalidAdminCredentials": "Invalid admin credentials.",
+    "notAuthenticated": "Not authenticated.",
+    "sessionExpired": "Session expired. Please log in again.",
+    "notCustomerSession": "Not a customer session.",
+    "accountNotFound": "Account not found.",
+    "genericError": "Something went wrong. Please try again."
+  },
+  "bgWord": {
+    "projects": "Portfolio",
+    "contact": "Connect",
+    "gallery": "Visual",
+    "amenities": "Lifestyle",
+    "about": "Story",
+    "calculator": "Plan",
+    "broker": "Partner"
+  },
+  "projectsPage": {
+    "title": "Residential & commercial plots",
+    "titleGold": "built on trust",
+    "subtitle": "A curated collection of verified developments — clear titles, honest planning, dependable delivery.",
+    "searchLabel": "Search projects",
+    "searchPlaceholder": "Search by project name or location…",
+    "noResults": "No projects match “{{query}}”. Try a different name or location.",
+    "verifiedProject": "Verified Project"
+  },
+  "entry": {
+    "skip": "Skip",
+    "begin": "Begin",
+    "unmuteVideo": "Unmute video",
+    "muteVideo": "Mute video"
+  }
+}

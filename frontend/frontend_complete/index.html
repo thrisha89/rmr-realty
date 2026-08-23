@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/media/brand/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Playfair Display only covers Latin glyphs, so the site's display
+         font previously fell back to an arbitrary browser default for
+         Telugu/Kannada/Tamil headings — a fallback with much taller
+         vowel signs (matras) than the Latin metrics the hero's
+         line-height/reveal-mask were tuned for, which is the root cause
+         of the multilingual hero clipping. Loading matching Noto Serif
+         faces for those three scripts gives every language a font with
+         predictable, well-designed glyph metrics (see fontFamily.display
+         in tailwind.config.js and .hero-heading in index.css). -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Serif+Telugu:wght@400;600;700&family=Noto+Serif+Kannada:wght@400;600;700&family=Noto+Serif+Tamil:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="RMR Realty — Real Estate, Builders and Promoters in Hosur, Tamil Nadu. Turning dreams into realty."
+    />
+    <title>RMR Realty | Turning Dreams Into Realty</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
